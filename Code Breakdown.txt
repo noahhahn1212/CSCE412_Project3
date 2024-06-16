@@ -1,0 +1,66 @@
+What each part of the code does:
+
+Main Program:
+1. Gets the users input
+	- Number of servers
+	- Run time
+2. Creates a loadbalancer object with the number of servers
+3. it starts the sim.
+	- Generates new request
+	- Distributes request to idle servers
+	- Checks and logs which servers are completed
+
+Request (.cpp & .h):
+Represents a web request
+1. Constructor
+	- Initilizes request with given IP and Processing time
+2. Getters
+
+Web Server (.cpp & .h):
+Represents a web server that can process requests
+1. Constructor
+	- Initilizes server ID and sets it to idle
+2. is Idle
+	- Shows weather or not a server is idle
+3. Process Request
+	- Assigns a request to server and marks it not idle
+4. Update
+	- Keeps track of the servers processing time by decreasing it
+5. Has Completed Request
+	- Checks to see if the current request is done
+6. Reset Current Request
+	- Resets the current state after request is done
+6. Get ID
+7. Get Current Request
+	- Returns current request being processed
+
+Request Queue (.cpp & .h):
+Manages the request Q
+1. Add Request
+2. Get Next Request
+	- Removes front obj from Q and returns the next one
+3. Is Empty
+	- Checks to see if Q is empty
+
+Load Balancer (.cpp & .h):
+Manages the requests the distribution to the web servers
+1. Constructor
+	-Creates list of web servers
+2. Log Closer
+3. Generate request
+	- Creates request with random in & outIP & Processing time
+	- Adds request to queue
+4. Distribute request
+	- Starts next request in queue to idle server
+5. Monitor Servers
+	- Updates server state and logs complete request
+6. Log
+7. Generate Random IP
+
+
+
+
+
+
+
+
